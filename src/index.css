@@ -7,4 +7,16 @@ body {
   overflow: hidden;
   background-color: #0f172a;
   /* slate-950 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-slate-900/80 backdrop-blur-md border border-slate-700/50 shadow-xl;
+  }
+
+  .glass-btn {
+    @apply bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 hover:bg-slate-700/60 transition-all duration-300;
+  }
 }

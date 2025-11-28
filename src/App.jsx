@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div className="fixed inset-0 bg-slate-950 flex items-center justify-center overflow-hidden">
-      <div className="relative w-full h-full md:max-w-4xl md:aspect-[4/3] md:h-auto bg-black md:rounded-xl shadow-2xl overflow-hidden border border-slate-800">
+      <div className="relative w-full h-full md:max-w-5xl md:h-[90vh] md:aspect-video bg-black md:rounded-2xl shadow-2xl overflow-hidden border-0 md:border border-slate-800/50 ring-1 ring-white/10">
         {/* We unmount GameCanvas when not playing to force full reset on restart */}
         {isPlaying && (
             <GameCanvas 

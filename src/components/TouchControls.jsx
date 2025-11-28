@@ -1,56 +1,65 @@
 export const TouchControls = ({ onMove, onShoot, onStopMove }) => {
   // Simple D-Pad and Shoot Button
   return (
-    <div className="absolute bottom-4 md:bottom-8 left-0 w-full px-4 md:px-8 flex justify-between items-end pointer-events-auto z-30 touch-none select-none">
+    <div className="absolute bottom-6 md:bottom-12 left-0 w-full px-6 md:px-12 flex justify-between items-end pointer-events-auto z-30 touch-none select-none">
       {/* D-Pad / Movement Area */}
-      <div className="relative w-40 h-40 md:w-48 md:h-48 bg-white/10 rounded-full backdrop-blur-sm border border-white/20 shadow-lg">
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
+      <div className="relative w-48 h-48 md:w-56 md:h-56 bg-slate-900/40 rounded-full backdrop-blur-md border border-white/10 shadow-2xl">
+        <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
             <div className="flex">
                 <button 
-                    className="w-12 h-12 md:w-14 md:h-14 bg-white/20 rounded-t-xl active:bg-white/40 mb-1 border border-white/10"
+                    className="w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-t-2xl active:bg-white/30 mb-1 border border-white/20 backdrop-blur-sm transition-colors"
                     onTouchStart={() => onMove('ArrowUp')}
                     onTouchEnd={() => onStopMove('ArrowUp')}
                     onMouseDown={() => onMove('ArrowUp')}
                     onMouseUp={() => onStopMove('ArrowUp')}
-                >⬆️</button>
+                >
+                    <span className="text-2xl opacity-80">⬆️</span>
+                </button>
             </div>
             <div className="flex gap-1">
                 <button 
-                    className="w-12 h-12 md:w-14 md:h-14 bg-white/20 rounded-l-xl active:bg-white/40 border border-white/10"
+                    className="w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-l-2xl active:bg-white/30 border border-white/20 backdrop-blur-sm transition-colors"
                     onTouchStart={() => onMove('ArrowLeft')}
                     onTouchEnd={() => onStopMove('ArrowLeft')}
                     onMouseDown={() => onMove('ArrowLeft')}
                     onMouseUp={() => onStopMove('ArrowLeft')}
-                >⬅️</button>
+                >
+                    <span className="text-2xl opacity-80">⬅️</span>
+                </button>
                 <button 
-                    className="w-12 h-12 md:w-14 md:h-14 bg-white/20 rounded-r-xl active:bg-white/40 border border-white/10"
+                    className="w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-r-2xl active:bg-white/30 border border-white/20 backdrop-blur-sm transition-colors"
                     onTouchStart={() => onMove('ArrowRight')}
                     onTouchEnd={() => onStopMove('ArrowRight')}
                     onMouseDown={() => onMove('ArrowRight')}
                     onMouseUp={() => onStopMove('ArrowRight')}
-                >➡️</button>
+                >
+                    <span className="text-2xl opacity-80">➡️</span>
+                </button>
             </div>
             <div className="flex">
                 <button 
-                    className="w-12 h-12 md:w-14 md:h-14 bg-white/20 rounded-b-xl active:bg-white/40 mt-1 border border-white/10"
+                    className="w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-b-2xl active:bg-white/30 mt-1 border border-white/20 backdrop-blur-sm transition-colors"
                     onTouchStart={() => onMove('ArrowDown')}
                     onTouchEnd={() => onStopMove('ArrowDown')}
                     onMouseDown={() => onMove('ArrowDown')}
                     onMouseUp={() => onStopMove('ArrowDown')}
-                >⬇️</button>
+                >
+                    <span className="text-2xl opacity-80">⬇️</span>
+                </button>
             </div>
         </div>
       </div>
 
       {/* Shoot Button */}
       <button 
-        className="w-24 h-24 md:w-28 md:h-28 bg-red-600/80 rounded-full border-4 border-red-400 active:bg-red-500 active:scale-95 transition-transform flex items-center justify-center shadow-[0_0_30px_rgba(220,38,38,0.6)] mb-2 md:mb-4 mr-2 md:mr-4"
+        className="group relative w-28 h-28 md:w-36 md:h-36 bg-gradient-to-br from-red-600 to-red-800 rounded-full border-4 border-red-400/50 active:scale-95 transition-all flex items-center justify-center shadow-[0_0_40px_rgba(220,38,38,0.5)] mb-4 md:mb-6 mr-2 md:mr-6 overflow-hidden"
         onTouchStart={() => onMove('Space')} // Treat as key down
         onTouchEnd={() => onStopMove('Space')}
         onMouseDown={() => onMove('Space')}
         onMouseUp={() => onStopMove('Space')}
       >
-        <span className="text-3xl md:text-4xl drop-shadow-md">⚔️</span>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 to-transparent opacity-0 group-active:opacity-100 transition-opacity"></div>
+        <span className="text-4xl md:text-5xl drop-shadow-md transform group-active:scale-110 transition-transform">⚔️</span>
       </button>
     </div>
   );
